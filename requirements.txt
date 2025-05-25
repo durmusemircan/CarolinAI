@@ -1,0 +1,8 @@
+streamlit
+pandas
+plotly
+streamlit-extras
+openpyxl
+transformers
+torch
+sentencepiece
