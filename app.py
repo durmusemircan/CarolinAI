@@ -38,8 +38,8 @@ gesamt_user = round(100 * len(df[df['rating_sentiment']=='positiv']) / len(df),2
 gesamt_ø = round(df['Bewertung'].mean(),2)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("🤖 Gesamt KI-Glück", f"{gesamt_ai} %")
-col2.metric("👥 Gesamt User-Glück", f"{gesamt_user} %")
+col1.metric("🤖 Gesamt Zufriedenheit Kommentare", f"{gesamt_ai} %")
+col2.metric("👥 Gesamt Zufriedenheit Sterne", f"{gesamt_user} %")
 col3.metric("⭐ Durchschnittsbewertung", gesamt_ø)
 
 # --- GESAMTE SENTIMENT-VERTEILUNG ---
@@ -69,20 +69,20 @@ st.markdown("---")
 
 # --- RANKINGS ---
 st.markdown("### 🏆 Produkt-Rankings & Vergleich")
-tabs = st.tabs(["🥇 Nach KI-Glück", "💬 Nach User-Glück", "⭐ Nach Durchschnittsbewertung"])
+tabs = st.tabs(["🥇 Nach Zufriedenheit Kommentare", "💬 Nach Zufriedenheit Sterne", "⭐ Nach Durchschnittsbewertung"])
 
 with tabs[0]:
-    st.subheader("Produkte mit höchstem KI-Glück")
+    st.subheader("Produkte mit höchstem Zufriedenheit Kommentare")
     st.dataframe(
-        produkt_df[["Produkt", "KI-Glück (%)", "Anzahl Bewertungen"]].sort_values("KI-Glück (%)", ascending=False).reset_index(drop=True),
+        produkt_df[["Produkt", "Zufriedenheit Kommentare (%)", "Anzahl Bewertungen"]].sort_values("Zufriedenheit Kommentare (%)", ascending=False).reset_index(drop=True),
         use_container_width=True,
         hide_index=True
     )
 
 with tabs[1]:
-    st.subheader("Produkte mit höchstem User-Glück")
+    st.subheader("Produkte mit höchstem Zufriedenheit Sterne")
     st.dataframe(
-        produkt_df[["Produkt", "User-Glück (%)", "Anzahl Bewertungen"]].sort_values("User-Glück (%)", ascending=False).reset_index(drop=True),
+        produkt_df[["Produkt", "Zufriedenheit Sterne (%)", "Anzahl Bewertungen"]].sort_values("Zufriedenheit Sterne (%)", ascending=False).reset_index(drop=True),
         use_container_width=True,
         hide_index=True
     )
@@ -123,7 +123,7 @@ st.markdown(
 
 c1, c2, c3 = st.columns(3)
 c1.metric("Anzahl Bewertungen", row["Anzahl Bewertungen"])
-c2.metric("KI-Glück (%)", row["KI-Glück (%)"])
+c2.metric("Zufriedenheit Kommentare (%)", row["Zufriedenheit Kommentare (%)"])
 c3.metric("Ø Bewertung", row["Ø Bewertung"])
 
 st.markdown("---")
