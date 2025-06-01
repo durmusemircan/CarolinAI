@@ -149,6 +149,6 @@ with st.expander("📑 Alle Kommentare für dieses Produkt anzeigen"):
 
 st.markdown(
     "<div style='text-align:center; color:#a7adbd; font-size:0.92em; margin-top:30px;'>"
-    "Carolin Nowak| Powered by Emircan Durmus"
+    "Carolin Nowak"
     "</div>", unsafe_allow_html=True
 )
